@@ -272,8 +272,9 @@ elif app_mode == "Chat Support":
             st.session_state.chat_input = ""
             st.markdown("<script>window.scrollTo(0, document.body.scrollHeight);</script>", unsafe_allow_html=True)
 
-    user_input = st.text_input("Type your message here:", key="chat_input", on_change=send_message)
-    st.button("Send", on_change=send_message)
+    user_input = st.text_input("Type your message here:", key="chat_input")
+    if st.button("Send"):
+        send_message()
 
 # History Page
 elif app_mode == "History":
