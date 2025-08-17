@@ -251,30 +251,37 @@ elif app_mode == "Disease Recognition":
 # Chat Support Page
 elif app_mode == "Chat Support":
     st.header("Agri LifeLine")
+    
+    # Initialize session state
     if "messages" not in st.session_state:
         st.session_state.messages = []
+    if "new_message" not in st.session_state:
+        st.session_state.new_message = ""
 
-    def display_chat():
-        for msg in st.session_state.messages:
-            if msg["role"] == "user":
-                st.write(f"You: {msg['content']}")
-            else:
-                st.write(f"Bot: {msg['content']}")
+    # Display chat messages
+    for msg in st.session_state.messages:
+        if msg["role"] == "user":
+            st.write(f"**You:** {msg['content']}")
+        else:
+            st.write(f"**Bot:** {msg['content']}")
 
-    display_chat()
-
-    def send_message():
-        user_message = st.session_state.chat_input
-        if user_message:
-            st.session_state.messages.append({"role": "user", "content": user_message})
-            response = chat_with_me(user_message)
-            st.session_state.messages.append({"role": "bot", "content": response})
-            st.session_state.chat_input = ""
-            st.markdown("<script>window.scrollTo(0, document.body.scrollHeight);</script>", unsafe_allow_html=True)
-
-    user_input = st.text_input("Type your message here:", key="chat_input")
-    if st.button("Send"):
-        send_message()
+    # Chat input and send button
+    user_input = st.text_input("Type your message here:", key="new_message")
+    
+    # Center the send button
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col2:
+        if st.button("Send", type="primary", use_container_width=True):
+            if user_input.strip():  # Check if input is not empty
+                # Add user message
+                st.session_state.messages.append({"role": "user", "content": user_input})
+                
+                # Get bot response
+                response = chat_with_me(user_input)
+                st.session_state.messages.append({"role": "bot", "content": response})
+                
+                # Rerun to refresh the page and clear input
+                st.rerun()
 
 # History Page
 elif app_mode == "History":
