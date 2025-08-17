@@ -144,3 +144,12 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 uploaded_image.jpg
+
+# API Keys and Environment Variables
+.env
+.env.local
+.env.production
+.env.development
+config.py
+secrets.py
+api_keys.py

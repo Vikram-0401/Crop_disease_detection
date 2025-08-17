@@ -7,16 +7,11 @@ from PIL import Image
 import sqlite3
 from datetime import datetime
 
-# Import configuration
-try:
-    from config import GOOGLE_API_KEY
-except ImportError:
-    # Fallback to environment variable if config file is not available
-    GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyC9ofeMhsLxxB6pw6bENBZUPlveLY_osz0")
-
 # Configure Google Generative AI
-genai.configure(api_key=GOOGLE_API_KEY)
-os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
+# Load API key from environment variable or use default (for development only)
+api_key = os.getenv("GOOGLE_API_KEY", "AIzaSyC9ofeMhsLxxB6pw6bENBZUPlveLY_osz0")
+genai.configure(api_key=api_key)
+os.environ["GOOGLE_API_KEY"] = api_key
 
 safety_settings = [
     {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
