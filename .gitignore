@@ -153,3 +153,6 @@ uploaded_image.jpg
 config.py
 secrets.py
 api_keys.py
+
+# Keep template files
+!config_template.py

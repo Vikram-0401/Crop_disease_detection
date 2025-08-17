@@ -126,7 +126,14 @@ The system can detect diseases in the following crops:
 
 ### Environment Variables
 The application uses the following environment variables:
-- `GOOGLE_API_KEY`: Google Generative AI API key (already configured)
+- `GOOGLE_API_KEY`: Google Generative AI API key
+
+### Setting Up API Keys
+1. **Copy the template**: `cp config_template.py config.py`
+2. **Edit config.py**: Replace `YOUR_GOOGLE_API_KEY_HERE` with your actual API key
+3. **Get API Key**: Visit [Google AI Studio](https://makersuite.google.com/app/apikey) to get your key
+
+**⚠️ Security Note**: Never commit your `config.py` file to version control. It's already added to `.gitignore`.
 
 ### Model Configuration
 - Model file: `trained_plant_disease_model.keras`
