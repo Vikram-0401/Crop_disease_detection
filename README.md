@@ -35,8 +35,8 @@ Plant-Disease-Detection-system-master/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Yashaswini0707/Plant-Disease-Detection-system.git
-   cd Plant-Disease-Detection-system
+   git clone https://github.com/Vikram-0401/Crop_disease_detection.git
+   cd Crop_disease_detection
    ```
 
 2. **Create a virtual environment**
@@ -68,8 +68,8 @@ Plant-Disease-Detection-system-master/
 
 ### Alternative: One-liner setup
 ```bash
-git clone https://github.com/Yashaswini0707/Plant-Disease-Detection-system.git && \
-cd Plant-Disease-Detection-system && \
+git clone https://github.com/Vikram-0401/Crop_disease_detection.git && \
+cd Crop_disease_detection && \
 python3 -m venv plant_disease_env && \
 source plant_disease_env/bin/activate && \
 pip install -r requirements.txt && \
